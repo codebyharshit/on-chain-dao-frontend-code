@@ -16,8 +16,10 @@
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.7.3",
     "wagmi": "^0.12.6",
     "web-vitals": "^2.1.4",
+    "web3": "^1.9.0",
     "yup": "^1.0.2"
   },
   "scripts": {
