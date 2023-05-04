@@ -119,13 +119,19 @@ const Home = () => {
         const items = await contract.queryFilter(
           filteredDataCopy,
           blockNumber - 950,
-          blockNumber - 2,
+          blockNumber - 2
         );
-        const proposalId = items.map((item) =>
-          web3.utils.hexToNumberString(item.args[0])
+        // const proposalId = items.map((item) =>
+        //   web3.utils.hexToNumberString(item.args[0])
+        // );
+        // console.log(proposalId);
+        // setEvents((prevItems) => [...prevItems, proposalId]);
+        items.map((item) =>
+          setEvents((prevItems) => [
+            ...prevItems,
+            web3.utils.hexToNumberString(item.args[0]),
+          ])
         );
-        console.log(proposalId);
-        setEvents((prevItems) => [...prevItems, proposalId]);
       } catch (error) {
         console.log("error", error);
       }
@@ -188,9 +194,10 @@ const Home = () => {
           <Heading />
 
           {/* {events.length > 0 && events.map((event, idx) => ( */}
-          {events.length > 0 && events.map((event, idx) => (
-            <Card key={idx} data={event.toString()} />
-          ))}
+          {events.length > 0 &&
+            events.map((event, idx) => (
+              <Card key={idx} data={event.toString()} />
+            ))}
         </div>
       </div>
     </div>
